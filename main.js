@@ -19,73 +19,11 @@ app.on("ready", function () {
     // alwaysOnTop: true,
     icon: __dirname + "/icon.png"
   });
-  mainWindow.loadURL("https://discord.com");
-
-  const xmenu = new Menu();
-  xmenu.append(
-    new MenuItem({
-      type: "checkbox",
-      label: "隠さない",
-      click: function (e) {
-        //checked = e.checked
-      },
-    })
-  );
-  xmenu.append(
-    new MenuItem({
-      type: "normal",
-      label: "URLをコピー",
-      click: function (e) {
-        //clipboard.writeText(nowURL)
-      },
-    })
-  );
-
+  mainWindow.loadURL("https://discord.com")
 });
 
 // ElectronのMenuの設定
 const templateMenu = [
-    {
-        label: 'Edit',
-        submenu: [
-            {
-                role: 'undo',
-            },
-            {
-                role: 'redo',
-            },
-        ]
-    },
-    {
-        label: 'View',
-        submenu: [
-            {
-                label: 'Reload',
-                accelerator: 'CmdOrCtrl+R',
-                click(item, focusedWindow){
-                    if(focusedWindow) focusedWindow.reload()
-                },
-            },
-            {
-                type: 'separator',
-            },
-            {
-                role: 'resetzoom',
-            },
-            {
-                role: 'zoomin',
-            },
-            {
-                role: 'zoomout',
-            },
-            {
-                type: 'separator',
-            },
-            {
-                role: 'togglefullscreen',
-            }
-        ]
-    },
     {
         label:"sushi",
         click(item,window) {
@@ -94,9 +32,7 @@ const templateMenu = [
               height: 800,
               width: 1280
             });
-          
             win.loadURL(window.webContents.getURL());
-            
         }
     }
 ];
